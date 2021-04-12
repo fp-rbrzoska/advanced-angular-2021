@@ -4,17 +4,28 @@ import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2 } from '@
   selector: '[fpHighlight]'
 })
 export class HighlightDirective implements OnInit {
-  @Input() bgColor: string;
+  @Input() fpHighlight: string;
+  @Input() fpHighlightBgColor: string;
 
   constructor(private el: ElementRef<HTMLElement>, private renderer: Renderer2) {
    }
 
    ngOnInit() {
-     this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', this.bgColor || 'pink')
+     this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', this.fpHighlightBgColor || 'pink')
    }
 
    @HostListener('click')
    elementClick() {
-     alert('clicked')
+     console.log('clicked')
+   }
+
+   @HostListener('mouseover')
+   highlightElement() {
+    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', this.fpHighlight || 'lightblue')
+   }
+
+   @HostListener('mouseout')
+   removeHighlightElement() {
+    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', this.fpHighlightBgColor || 'pink')
    }
 }

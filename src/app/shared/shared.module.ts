@@ -6,12 +6,14 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HighlightDirective } from './highlight.directive';
+import { MyStructDirective } from './my-struct.directive';
 
 
 
 @NgModule({
   declarations: [
-    HighlightDirective
+    HighlightDirective,
+    MyStructDirective
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { HighlightDirective } from './highlight.directive';
     MatIconModule,
     MatListModule,
     HighlightDirective,
+    MyStructDirective,
   ]
 })
 export class SharedModule { }

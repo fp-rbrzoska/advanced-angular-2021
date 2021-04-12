@@ -1,4 +1,12 @@
 <mat-toolbar color="primary">
   <a routerLink="/" mat-button>Home</a>
   <a routerLink="/test" mat-button>Test</a>
+  <ng-container  *ngIf="isLoggedIn$ | async; else loginBtn">
+    <button (click)="logout()" mat-flat-button color="accent">Logout</button>
+  </ng-container>
+  <ng-template #loginBtn>
+    <button (click)="login()"  mat-flat-button color="accent">Login</button>
+  </ng-template>
+
+
 </mat-toolbar>

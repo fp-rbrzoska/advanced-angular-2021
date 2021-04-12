@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'fp-navigation',
@@ -10,12 +9,19 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class NavigationComponent {
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  isLoggedIn$: Observable<boolean>
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private auth: AuthService) {
+    this.isLoggedIn$ = this.auth.isLoggedIn$;
+  }
+
+  login() {
+    this.auth.login();
+  }
+
+  logout() {
+
+    this.auth.logout();
+  }
 
 }
