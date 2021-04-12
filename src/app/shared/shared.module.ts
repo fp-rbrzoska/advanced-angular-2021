@@ -7,13 +7,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HighlightDirective } from './highlight.directive';
 import { MyStructDirective } from './my-struct.directive';
+import { MyCustomControlComponent } from './my-custom-control/my-custom-control.component';
 
 
 
 @NgModule({
   declarations: [
     HighlightDirective,
-    MyStructDirective
+    MyStructDirective,
+    MyCustomControlComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { MyStructDirective } from './my-struct.directive';
     MatListModule,
     HighlightDirective,
     MyStructDirective,
+    MyCustomControlComponent,
   ]
 })
 export class SharedModule { }
