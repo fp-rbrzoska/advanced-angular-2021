@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Component, Inject, OnInit } from '@angular/core';
+import { TwittwerService } from '../twittwer.service';
 
 @Component({
   selector: 'fp-tweet-list',
@@ -24,7 +26,10 @@ export class TweetListComponent implements OnInit {
       type: 'img'
     }
   ];
-  constructor() { }
+  constructor(private twitter: TwittwerService, @Inject(HTTP_INTERCEPTORS) private interceptors: HttpInterceptor[]) {
+    twitter.loadPosts().subscribe(v => console.log(v));
+    console.log(interceptors)
+   }
 
   ngOnInit(): void {
   }

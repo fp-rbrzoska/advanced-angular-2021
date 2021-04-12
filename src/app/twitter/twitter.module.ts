@@ -7,6 +7,7 @@ import { TweetItemComponent } from './tweet-item/tweet-item.component';
 import { TweetTextComponent } from './tweet-text/tweet-text.component';
 import { TweetImageComponent } from './tweet-image/tweet-image.component';
 import { SharedModule } from '../shared/shared.module';
+import { TwittwerService } from './twittwer.service';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     SharedModule,
     TwitterRoutingModule
-  ]
+  ],
+  providers: [TwittwerService]
 })
 export class TwitterModule { }
