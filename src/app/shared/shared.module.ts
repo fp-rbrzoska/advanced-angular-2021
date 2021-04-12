@@ -5,11 +5,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { HighlightDirective } from './highlight.directive';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HighlightDirective
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -24,6 +27,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    HighlightDirective,
   ]
 })
 export class SharedModule { }
